@@ -160,6 +160,8 @@ alias pacnet="darkhttpd /var/cache/pacman/pkg --port 8000 --addr 0.0.0.0"
 alias threadcount="ps -o nlwp"
 alias cfg='/usr/bin/git --git-dir=/home/shank/.dotfiles/ --work-tree=/home/shank'
 alias lsi="stat -c '%A %a %h %U %G %s %y %n'"
+alias ze="nvim $ZDOTDIR/.zshrc"
+alias zs="source $ZDOTDIR/.zshrc"
 
 # Other tips and tricks
 # ======================
