@@ -157,6 +157,9 @@ alias mirror="wget -e robots=off --mirror --convert-links --adjust-extension --p
 # Run this first ln -s /var/lib/pacman/sync/*.db /var/cache/pacman/pkg/
 # https://wiki.archlinux.org/title/pacman/Tips_and_tricks#Custom_local_repository
 alias pacnet="darkhttpd /var/cache/pacman/pkg --port 8000 --addr 0.0.0.0"
+alias threadcount="ps -o nlwp"
+alias cfg='/usr/bin/git --git-dir=/home/shank/.dotfiles/ --work-tree=/home/shank'
+alias lsi="stat -c '%A %a %h %U %G %s %y %n'"
 
 # Other tips and tricks
 # ======================
@@ -169,3 +172,5 @@ alias pacnet="darkhttpd /var/cache/pacman/pkg --port 8000 --addr 0.0.0.0"
 # Fun
 # https://www.reddit.com/r/linuxquestions/comments/kfkrr8/what_is_the_most_esoteric_features_of_linux_world/?rdt=56524
 alias fun='xxd /dev/urandom | lolcat'
+
+[ -f "/home/shank/.ghcup/env" ] && source "/home/shank/.ghcup/env" # ghcup-env
