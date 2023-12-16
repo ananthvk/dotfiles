@@ -15,7 +15,7 @@ export ZSH="$ZDOTDIR/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="steeef"
+ZSH_THEME="steeef" # set by `omz`
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -178,3 +178,5 @@ alias fun='xxd /dev/urandom | lolcat'
 
 [ -f "/home/shank/.ghcup/env" ] && source "/home/shank/.ghcup/env" # ghcup-env
 export TERMINAL="kitty"
+# Other apps which are useful: mpv, zathura, feh, ranger
+eval "$(zoxide init zsh)"
