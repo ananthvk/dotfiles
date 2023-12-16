@@ -20,7 +20,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:IBM Plex Mono 13
+font pango:IBM Plex Sans 14
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -178,6 +178,54 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+
+# Use gruvbox-material theme
+# https://github.com/sainnhe/gruvbox-material
+set $gruv_bg_dim              #141617
+set $gruv_bg0                 #1d2021
+set $gruv_bg1                 #282828
+set $gruv_bg2                 #282828
+set $gruv_bg3                 #3c3836
+set $gruv_bg4                 #3c3836
+set $gruv_bg5                 #504945
+set $gruv_bg_statusline1      #282828
+set $gruv_bg_statusline2      #32302f
+set $gruv_bg_statusline3      #504945
+set $gruv_bg_diff_green       #32361a
+set $gruv_bg_visual_green     #333e34
+set $gruv_bg_diff_red         #3c1f1e
+set $gruv_bg_visual_red       #442e2d
+set $gruv_bg_diff_blue        #0d3138
+set $gruv_bg_visual_blue      #2e3b3b
+set $gruv_bg_visual_yellow    #473c29
+set $gruv_bg_current_word     #32302f
+set $gruv_fg0                 #d4be98
+set $gruv_fg1                 #ddc7a1
+set $gruv_red                 #ea6962
+set $gruv_orange              #e78a4e
+set $gruv_yellow              #d8a657
+set $gruv_green               #a9b665
+set $gruv_aqua                #89b482
+set $gruv_blue                #7daea3
+set $gruv_purpe               #d3869b
+set $gruv_bg_red              #ea6962
+set $gruv_bg_green            #a9b665
+set $gruv_grey1               #928374
+set $gruv_grey2               #a89984
+set $gruv_bg_yellow           #d8a657
+set $gruv_grey0               #7c6f64
+
+#                       border       background    text       indicator child border
+client.focused          $gruv_bg2     $gruv_bg_dim   $gruv_green  
+client.focused_inactive $gruv_bg3     $gruv_bg0      $gruv_fg1   
+client.unfocused        $gruv_bg3     $gruv_bg0      $gruv_fg0 
+client.urgent           $gruv_yellow  $gruv_yellow   #000000
+client.placeholder      #000000  #0c0c0c     #ffffff #000000   #0c0c0c
+client.background       $gruv_bg_dim
+
+gaps inner 15
+gaps outer 15
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -204,6 +252,8 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
