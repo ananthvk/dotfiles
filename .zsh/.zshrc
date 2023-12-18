@@ -181,4 +181,5 @@ export TERMINAL="kitty"
 # Other apps which are useful: mpv, zathura, feh, ranger
 eval "$(zoxide init zsh)"
 
-GIT_ASKPASS=/usr/bin/ksshaskpass
+export GIT_ASKPASS=/usr/bin/ksshaskpass
+export QT_QPA_PLATFORMTHEME=qt5ct

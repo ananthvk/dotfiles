@@ -57,13 +57,6 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -117,10 +110,10 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: Browser "
-set $ws2 "2: Notes "
-set $ws3 "3: Code "
-set $ws4 "4: Terminal "
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -165,6 +158,8 @@ assign [class="google-chrome"] $ws1
 assign [class="Google-chrome"] $ws1
 assign [class="code"] $ws3
 assign [class="Code"] $ws3
+assign [class="Zathura"] $ws5
+assign [class="org.pwmt.zathura"] $ws5
 
 
 assign [class="obsidian"] $ws2
@@ -178,6 +173,32 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
 
 # Use gruvbox-material theme
 # https://github.com/sainnhe/gruvbox-material
@@ -215,50 +236,45 @@ set $gruv_grey2               #a89984
 set $gruv_bg_yellow           #d8a657
 set $gruv_grey0               #7c6f64
 
-#                       border       background    text       indicator child border
+#                       border        background     text         indicator child border
 client.focused          $gruv_bg2     $gruv_bg_dim   $gruv_green  
-client.focused_inactive $gruv_bg3     $gruv_bg0      $gruv_fg1   
-client.unfocused        $gruv_bg3     $gruv_bg0      $gruv_fg0 
-client.urgent           $gruv_yellow  $gruv_yellow   #000000
-client.placeholder      #000000  #0c0c0c     #ffffff #000000   #0c0c0c
+client.focused_inactive $gruv_bg3     $gruv_bg0      $gruv_grey0   
+client.unfocused        $gruv_bg3     $gruv_bg0      $gruv_grey0
+client.urgent           $gruv_red     $gruv_yellow   #000000
 client.background       $gruv_bg_dim
 
-gaps inner 15
-gaps outer 15
+hide_edge_borders both
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+gaps inner 10
+gaps outer -10
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
+# start dmenu (a program launcher)
+# bindsym $mod+d exec --no-startup-id dmenu_run -nb "$gruv_bg0" -sb "$gruv_green" -sf "$gruvb_g_dim"
+# A more modern dmenu replacement is rofi:
+bindsym $mod+d exec "rofi -modi drun,run -show drun"
+# There also is i3-dmenu-desktop which only displays applications shipping a
+# .desktop file. It is a wrapper around dmenu, so you need that installed.
+# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
+        position top
+        separator_symbol ""
+        workspace_min_width 40 px
+        # top right bottom left
+        padding 2px 8px 2px 8px
+        colors{
+            background $gruv_bg_statusline2
+            #                      border                background                  text
+            focused_workspace      $gruv_bg_statusline1  $gruv_bg_statusline1        $gruv_green
+            inactive_workspace     $gruv_bg_statusline2  $gruv_bg_statusline2        $gruv_grey0
+            urgent_workspace       $gruv_red             $gruv_red                   #ffffff
+            separator $gruv_blue
+            statusline $gruv_fg0
+        }
 }
 
 
@@ -296,10 +312,10 @@ exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 
 # Startup applications
-exec brave
-exec obsidian
-exec kitty
+# exec brave
+# exec obsidian
+# exec kitty
 
 # To make vscode sign in work, https://code.visualstudio.com/docs/editor/settings-sync#_troubleshooting-keychain-issues, Add kwallet5 to runtime args
-exec code
+# exec code
 exec --no-startup-id dropbox start
