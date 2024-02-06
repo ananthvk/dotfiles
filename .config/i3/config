@@ -280,13 +280,16 @@ bar {
 
 # Custom keybindings from here
 # ============================
-bindsym $mod+x exec i3lock -c 000000
+bindsym $mod+x exec i3lock -i ~/Pictures/win.png -p win -e -u --nofork
 
 # Brightness controls
 # https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder 
 # https://wiki.archlinux.org/title/backlight
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+# Fix: Install brightnessctl and use brightnessctl set +10% / 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym $mod+shift+f exec brightnessctl set 100%
+bindsym $mod+shift+d exec brightnessctl set 10%
 
 # TODO: Add touchpadd controls
 
@@ -311,6 +314,7 @@ exec --no-startup-id kwallet5d
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 
+# new_window pixel
 # Startup applications
 # exec brave
 # exec obsidian

@@ -183,3 +183,15 @@ eval "$(zoxide init zsh)"
 
 export GIT_ASKPASS=/usr/bin/ksshaskpass
 export QT_QPA_PLATFORMTHEME=qt5ct
+export PATH="$PATH:$HOME/.fluttersdk/flutter:$HOME/.fluttersdk/flutter/bin"
+source "$HOME/.cargo/env"
+# br "Series.*(S\d+E\d+).*(mkv|srt|mp4)$" 'Series${1}.${2}'
+alias updatemirrors='sudo reflector --save /etc/pacman.d/mirrorlist --verbose --country IN --country DE --country AU --country KR --country JP --verbose --latest 15 --sort rate'
+
+# pnpm
+export PNPM_HOME="/home/shank/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
