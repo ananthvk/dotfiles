@@ -77,7 +77,7 @@ ZSH_THEME="steeef" # set by `omz`
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vscode dirhistory systemd)
+plugins=(git vscode dirhistory systemd autopep8 sudo rust ripgrep zoxide web-search qrcode history emoji archlinux fzf genpass)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,12 +120,13 @@ source $ZDOTDIR/powerlevel10k/powerlevel10k.zsh-theme
 bindkey -v
 bindkey jk vi-cmd-mode
 
+
 # Remap caps lock to ctrl
-setxkbmap -option caps:ctrl_modifier
+#setxkbmap -option caps:ctrl_modifier
 
 # Set environment variables
 export GCM_CREDENTIAL_STORE=secretservice
-export PATH="$PATH:$HOME/cf"
+export PATH="$PATH:$HOME/cf:$HOME/node_modules/.bin"
 export PATH=~/.local/bin/:$PATH
 export TerminalEmulator=kitty
 export EDITOR=nvim
@@ -163,6 +164,11 @@ alias lsi="stat -c '%A %a %h %U %G %s %y %n'"
 alias ze="nvim $ZDOTDIR/.zshrc"
 alias zs="source $ZDOTDIR/.zshrc"
 alias dut='sudo du -hs * | sort -h -r | head -n10'
+alias fun='xxd /dev/urandom | lolcat'
+alias updatemirrors='sudo reflector --save /etc/pacman.d/mirrorlist --verbose --country IN --country DE --country AU --country KR --country JP --verbose --latest 15 --sort rate'
+alias docs='(cd /usr/share/doc/arch-wiki/html && ws)'
+alias uefi='systemctl reboot --firmware-setup'
+
 
 # Other tips and tricks
 # ======================
@@ -174,19 +180,15 @@ alias dut='sudo du -hs * | sort -h -r | head -n10'
 
 # Fun
 # https://www.reddit.com/r/linuxquestions/comments/kfkrr8/what_is_the_most_esoteric_features_of_linux_world/?rdt=56524
-alias fun='xxd /dev/urandom | lolcat'
-
 [ -f "/home/shank/.ghcup/env" ] && source "/home/shank/.ghcup/env" # ghcup-env
 export TERMINAL="kitty"
 # Other apps which are useful: mpv, zathura, feh, ranger
 eval "$(zoxide init zsh)"
-
 export GIT_ASKPASS=/usr/bin/ksshaskpass
 export QT_QPA_PLATFORMTHEME=qt5ct
 export PATH="$PATH:$HOME/.fluttersdk/flutter:$HOME/.fluttersdk/flutter/bin"
 source "$HOME/.cargo/env"
 # br "Series.*(S\d+E\d+).*(mkv|srt|mp4)$" 'Series${1}.${2}'
-alias updatemirrors='sudo reflector --save /etc/pacman.d/mirrorlist --verbose --country IN --country DE --country AU --country KR --country JP --verbose --latest 15 --sort rate'
 
 # pnpm
 export PNPM_HOME="/home/shank/.local/share/pnpm"
@@ -195,3 +197,10 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+source /usr/share/wikiman/widgets/widget.zsh
+
+export HISTSIZE=100000
+export HISTFILESIZE=10000000
+alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
+alias passwordbox="GDK_BACKEND=x11 yad --text-align=center --entry --entry-label="" --hide-text --no-buttons --close-on-unfocus --title="" --width=200 --borders=0 --undecorated --geometry=50x10+0+0 --skip-taskbar"
+
