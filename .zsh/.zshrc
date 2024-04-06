@@ -106,6 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+source $ZDOTDIR/catppuccin-zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -113,6 +114,7 @@ source $ZDOTDIR/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+# [[ ! -f $ZDOTDIR/powerlevel10k/config/p10k-robbyrussell.zsh ]] || source $ZDOTDIR/powerlevel10k/config/p10k-robbyrussell.zsh
 # Load secrets such as API keys
 [[ ! -f ~/.secrets ]] || source ~/.secrets
 

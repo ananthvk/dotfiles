@@ -19,6 +19,13 @@
 [[ ! -o 'no_brace_expand' ]] || p10k_config_opts+=('no_brace_expand')
 'builtin' 'setopt' 'no_aliases' 'no_sh_glob' 'brace_expand'
 
+# If the terminal does not support truecolor, render closest available color
+# https://github.com/romkatv/powerlevel10k/issues/62
+if [[ $COLORTERM != (24bit|truecolor) && ${terminfo[colors]} -ne 16777216 ]]; then
+  zmodload zsh/nearcolor
+fi
+
+
 () {
   emulate -L zsh -o extended_glob
 
