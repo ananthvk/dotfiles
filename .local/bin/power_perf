@@ -1,0 +1,19 @@
+#!/bin/sh
+# Author: Shankar
+# Date: 26-July-2023
+# Note: Some of these settings are dependent on the hardware, so do not blindly copy.
+# Enable turbo boost, which increases performances but also increases power usage 
+echo 0 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
+# Sets the energy bias hint to performance, 0 is for max performance and 15 is for max power savings
+sudo cpupower set -b 0
+# Set the maximum frequency to 3600mhz
+sudo cpupower frequency-set -u 3600mhz
+# Set the minimum frequency to 800mhz
+sudo cpupower frequency-set -d 800mhz
+# Add the below line to sudoers to execute without sudo
+# <username> ALL = NOPASSWD: /usr/local/bin/intel_pstate_powersave
+# Do not autosuspend for USB device Dell MS116 USB Optical Mouse [PixArt]
+# echo 'on' | sudo tee '/sys/bus/usb/devices/1-9/power/control';
+# disable wifi power management
+sudo iwconfig wlp1s0 power off
+sudo iwconfig wlan0 power off

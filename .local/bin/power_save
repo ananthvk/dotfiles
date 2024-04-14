@@ -1,0 +1,41 @@
+#!/bin/sh
+# Author: Shankar
+# Date: 26-July-2023
+# Note: Some of these settings are dependent on the hardware, so do not blindly copy.
+# Disable turbo boost, which reduces performances but increases power savings
+echo 1 | sudo tee  /sys/devices/system/cpu/intel_pstate/no_turbo
+# Sets the energy bias hint to power, 0 is for max performance and 15 is for max power savings
+sudo cpupower set -b 15
+# Set the maximum frequency to 1600mhz
+sudo cpupower frequency-set -u 1700mhz
+# Set the minimum frequency to 400mhz
+sudo cpupower frequency-set -d 400mhz
+# Add the below line to sudoers to execute without sudo
+# <username> ALL = NOPASSWD: /usr/local/bin/intel_pstate_powersave
+#
+# Recommendations from powertop
+# VM writeback timeout
+echo '1500' | sudo tee '/proc/sys/vm/dirty_writeback_centisecs';
+# Enable Audio codec power management
+echo '1' | sudo tee '/sys/module/snd_hda_intel/parameters/power_save';
+# NMI watchdog should be turned off
+echo '0' | sudo tee '/proc/sys/kernel/nmi_watchdog';
+# Autosuspend for USB device Dell MS116 USB Optical Mouse [PixArt]
+# echo 'auto' | sudo tee '/sys/bus/usb/devices/1-9/power/control';
+# Runtime PM for PCI Device Samsung Electronics Co Ltd NVMe SSD Controller SM961/PM961/SM963
+echo 'auto' | sudo tee '/sys/bus/pci/devices/0000:02:00.0/power/control';
+# Runtime PM for PCI Device Intel Corporation Sunrise Point LPC Controller/eSPI Controller
+echo 'auto' | sudo tee '/sys/bus/pci/devices/0000:00:1f.0/power/control';
+# Runtime PM for PCI Device Intel Corporation Ethernet Connection (4) I219-LM
+echo 'auto' | sudo tee '/sys/bus/pci/devices/0000:00:1f.6/power/control';
+# Runtime PM for PCI Device Intel Corporation Sunrise Point-LP Active Management Technology - SOL
+echo 'auto' | sudo tee '/sys/bus/pci/devices/0000:00:16.3/power/control';
+# Runtime PM for PCI Device Intel Corporation Wireless 8265 / 8275
+echo 'auto' | sudo tee '/sys/bus/pci/devices/0000:01:00.0/power/control';
+# Runtime PM for PCI Device Intel Corporation Xeon E3-1200 v6/7th Gen Core Processor Host Bridge/DRAM Registers
+echo 'auto' | sudo tee '/sys/bus/pci/devices/0000:00:00.0/power/control';
+# Enable wifi power management
+(sudo iwconfig wlp1s0 power on)
+(sudo iwconfig wlan0 power on)
+# Switch off the keyboard backlight(if on) to save more power
+echo 0 | sudo tee /sys/class/leds/dell::kbd_backlight/brightness
