@@ -140,9 +140,14 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias brave='brave --password-store=kwallet5'
 alias ls='exa --icons --group-directories-first' # Can also use lsd
 alias icat="kitty +kitten icat"
-alias ytb="yt-dlp -f 'bestaudio+bestvideo'"
-alias ytp="yt-dlp -f 'bestvideo[height<=1080]+bestaudio'"
+# -S +hdr removes hdr videos
+# https://github.com/yt-dlp/yt-dlp/issues/7541
+alias ytb="yt-dlp -S +hdr -f 'bestaudio+bestvideo'"
+alias ytbx264="yt-dlp -S +hdr -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'"
+alias ytp="yt-dlp -S +hdr -f 'bestvideo[height<=1080]+bestaudio'"
+alias ytpx264="yt-dlp -S +hdr -f 'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]'"
 alias sudoreset="faillock --user $USER --reset"
+alias yt-dlp-update="DISPLAY= pip install git+https://github.com/yt-dlp/yt-dlp/@master --break-system-packages"
 alias vi="nvim"
 alias vim="nvim"
 alias display_normal="xrandr --output HDMI-1 --brightness 1.0"
@@ -200,6 +205,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 source /usr/share/wikiman/widgets/widget.zsh
+
+alias c='cd $(dirname $(fzf))'
 
 export HISTSIZE=100000
 export HISTFILESIZE=10000000
