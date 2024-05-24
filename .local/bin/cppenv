@@ -11,7 +11,7 @@ clang++ -Wall \
 -Wcast-align \
 -pedantic \
 -gdwarf-4 \
--O0 \
+-O1 \
 -fsanitize=integer,address,undefined,integer-divide-by-zero,shift,null,return,signed-integer-overflow,float-divide-by-zero,float-cast-overflow,bounds,alignment,vptr,leak \
 -pedantic \
 -Wno-sign-compare \

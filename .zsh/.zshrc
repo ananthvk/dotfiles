@@ -213,3 +213,5 @@ export HISTFILESIZE=10000000
 alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 alias passwordbox="GDK_BACKEND=x11 yad --text-align=center --entry --entry-label="" --hide-text --no-buttons --close-on-unfocus --title="" --width=200 --borders=0 --undecorated --geometry=50x10+0+0 --skip-taskbar"
 
+alias message="fortune | cowsay | lolcat"
+alias backup="borg create --list --verbose --stats --progress --show-rc --exclude-caches"
