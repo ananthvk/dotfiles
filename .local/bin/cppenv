@@ -12,7 +12,7 @@ clang++ -Wall \
 -pedantic \
 -gdwarf-4 \
 -O1 \
--fsanitize=integer,address,undefined,integer-divide-by-zero,shift,null,return,signed-integer-overflow,float-divide-by-zero,float-cast-overflow,bounds,alignment,vptr,leak \
+-fsanitize=integer,address,undefined,integer-divide-by-zero,shift,null,return,signed-integer-overflow,float-divide-by-zero,float-cast-overflow,bounds,alignment,vptr,leak,object-size,enum,unreachable \
 -pedantic \
 -Wno-sign-compare \
 -Wno-unused-parameter \
@@ -22,4 +22,14 @@ clang++ -Wall \
 -D_GLIBCXX_DEBUG_PEDANTIC \
 -D_FORTIFY_SOURCE=2 \
 -fstack-protector \
+-Wpointer-arith \
+-Wcast-qual \
+-Wstrict-overflow \
+-Wstrict-aliasing \
+-g3 \
+-Wnon-virtual-dtor \
+-Wold-style-cast \
+-Woverloaded-virtual \
+-Wnull-dereference \
+-Wdouble-promotion \
 "

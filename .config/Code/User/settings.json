@@ -215,7 +215,7 @@
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.showTabs": "single",
     "workbench.list.horizontalScrolling": true,
-    "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+    "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
     "workbench.preferredLightColorTheme": "Catppuccin Latte",
     "workbench.startupEditor": "none",
     "workbench.statusBar.visible": false,
@@ -226,4 +226,5 @@
     "color-highlight.markRuler": false,
     "editor.stickyScroll.enabled": false,
     "breadcrumbs.enabled": false,
+    "github.copilot.editor.enableAutoCompletions": true,
 }

@@ -133,12 +133,12 @@ export PATH=~/.local/bin/:$PATH
 export TerminalEmulator=kitty
 export EDITOR=nvim
 export BROWSER=brave
-export GOPATH=$HOME/go/pkg
+export GOPATH=$HOME/.go/pkg
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # Aliases
 alias brave='brave --password-store=kwallet5'
-alias ls='exa --icons --group-directories-first' # Can also use lsd
+alias ls='exa --icons --group-directories-first --hyperlink' # Can also use lsd
 alias icat="kitty +kitten icat"
 # -S +hdr removes hdr videos
 # https://github.com/yt-dlp/yt-dlp/issues/7541
