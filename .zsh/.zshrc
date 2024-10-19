@@ -77,7 +77,7 @@ ZSH_THEME="steeef" # set by `omz`
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vscode dirhistory systemd autopep8 sudo rust ripgrep zoxide web-search qrcode history emoji archlinux fzf genpass)
+plugins=(git vscode dirhistory systemd autopep8 sudo rust zoxide web-search qrcode history emoji archlinux fzf genpass)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -128,7 +128,7 @@ bindkey jk vi-cmd-mode
 
 # Set environment variables
 export GCM_CREDENTIAL_STORE=secretservice
-export PATH="$PATH:$HOME/cf:$HOME/node_modules/.bin"
+export PATH="$PATH:$HOME/cf:$HOME/node_modules/.bin:$HOME/code/compp/codeforces"
 export PATH=~/.local/bin/:$PATH
 export TerminalEmulator=kitty
 export EDITOR=nvim
@@ -215,3 +215,9 @@ alias passwordbox="GDK_BACKEND=x11 yad --text-align=center --entry --entry-label
 
 alias message="fortune | cowsay | lolcat"
 alias backup="borg create --list --verbose --stats --progress --show-rc --exclude-caches"
+alias paru="PKGEXT=.pkg.tar paru"
+alias yay="PKGEXT=.pkg.tar paru"
+# Unbind Alt-U, Alt-I, which is used by vim 
+bindkey -r "^[i"
+bindkey -r "^[u"
+

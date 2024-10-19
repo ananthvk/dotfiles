@@ -96,7 +96,7 @@
     "C_Cpp.default.compilerPath": "/usr/bin/gcc",
     "C_Cpp.default.cppStandard": "c++14",
     "C_Cpp.default.cStandard": "c11",
-    "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+    "C_Cpp.default.intelliSenseMode": "linux-clang-x64",
     "C_Cpp.formatting": "clangFormat",
     "workbench.colorTheme": "Catppuccin Mocha",
     "terminal.integrated.enableMultiLinePasteWarning": "never",
