@@ -215,7 +215,7 @@
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.showTabs": "single",
     "workbench.list.horizontalScrolling": true,
-    "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
+    "workbench.preferredDarkColorTheme": "Gruvbox Material Dark",
     "workbench.preferredLightColorTheme": "Catppuccin Latte",
     "workbench.startupEditor": "none",
     "workbench.statusBar.visible": false,
