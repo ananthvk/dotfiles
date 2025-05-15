@@ -44,5 +44,25 @@
     {
         "key": "ctrl+j",
         "command": "workbench.action.navigateDown"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "notebook.focusNextEditor",
+        "when": "notebookEditorFocused"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "notebook.focusPreviousEditor",
+        "when": "notebookEditorFocused"
+    },
+    /*
+    {
+        "key": "shift+l t",
+        "command": "leetcode.testSolution"
+    },
+    {
+        "key": "shift+l s",
+        "command": "leetcode.submitSolution"
     }
+    */
 ]

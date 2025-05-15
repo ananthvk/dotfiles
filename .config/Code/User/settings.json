@@ -40,49 +40,6 @@
         "<C-a>": false,
         "<C-f>": false
     },
-    "settings": {
-        "vim.easymotion": true,
-        "vim.incsearch": true,
-        "vim.useSystemClipboard": true,
-        "vim.useCtrlKeys": true,
-        "vim.hlsearch": true,
-        "vim.insertModeKeyBindings": [
-            {
-                "before": [
-                    "j",
-                    "k"
-                ],
-                "after": [
-                    "<Esc>"
-                ]
-            }
-        ],
-        "vim.normalModeKeyBindingsNonRecursive": [
-            {
-                "before": [
-                    "<leader>",
-                    "d"
-                ],
-                "after": [
-                    "d",
-                    "d"
-                ]
-            },
-            {
-                "before": [
-                    "<C-n>"
-                ],
-                "commands": [
-                    ":nohl"
-                ]
-            }
-        ],
-        "vim.leader": "<space>",
-        "vim.handleKeys": {
-            "<C-a>": false,
-            "<C-f>": false
-        },
-    },
     "[c]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
@@ -94,13 +51,18 @@
         "/usr/local/include"
     ],
     "C_Cpp.default.compilerPath": "/usr/bin/gcc",
-    "C_Cpp.default.cppStandard": "c++14",
+    "C_Cpp.default.cppStandard": "c++20",
     "C_Cpp.default.cStandard": "c11",
     "C_Cpp.default.intelliSenseMode": "linux-clang-x64",
     "C_Cpp.formatting": "clangFormat",
-    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.colorTheme": "Gruvbox Material Dark",
     "terminal.integrated.enableMultiLinePasteWarning": "never",
-    "editor.fontFamily": "'DejaVuSansM Nerd Font Mono', 'IBM Plex Mono', 'Roboto'",
+    "editor.fontFamily": "'DejaVuSansM Nerd Font Mono','IBM Plex Mono', 'Inter', 'Source Code Pro Medium', 'Iosevka NFM',   'Roboto'",
+    "notebook.output.fontFamily": "'IBM Plex Mono'",
+    // "terminal.integrated.fontFamily": "'Iosevka NFM'",
+    "editor.inlayHints.fontFamily": "'Inter'",
+    "editor.inlineSuggest.fontFamily": "'Inter'",
+    "markdown.preview.fontFamily": "'IBM Plex Mono'",
     "redhat.telemetry.enabled": false,
     "workbench.iconTheme": "material-icon-theme",
     "editor.detectIndentation": false,
@@ -178,9 +140,9 @@
     "editor.lineNumbers": "relative",
     "explorer.compactFolders": false,
     "window.autoDetectHighContrast": false,
-    "zenMode.fullScreen": false,
+    "zenMode.fullScreen": true,
     "editor.fontSize": 16,
-    "editor.fontWeight": "350",
+    "editor.fontWeight": "400",
     "editor.lineHeight": 26,
     "debug.toolBarLocation": "docked",
     "diffEditor.ignoreTrimWhitespace": false,
@@ -211,12 +173,12 @@
     "window.autoDetectColorScheme": true,
     "window.newWindowDimensions": "inherit",
     "window.title": "",
-    "window.titleBarStyle": "native",
+    "window.titleBarStyle": "custom",
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.showTabs": "single",
     "workbench.list.horizontalScrolling": true,
     "workbench.preferredDarkColorTheme": "Gruvbox Material Dark",
-    "workbench.preferredLightColorTheme": "Catppuccin Latte",
+    "workbench.preferredLightColorTheme": "Gruvbox Material Light",
     "workbench.startupEditor": "none",
     "workbench.statusBar.visible": false,
     "workbench.tips.enabled": false,
@@ -227,4 +189,16 @@
     "editor.stickyScroll.enabled": false,
     "breadcrumbs.enabled": false,
     "github.copilot.editor.enableAutoCompletions": true,
+    "leetcode.defaultLanguage": "cpp",
+    "leetcode.allowReportData": false,
+    "leetcode.hint.commandShortcut": false,
+    "leetcode.hint.configWebviewMarkdown": false,
+    "github.copilot.chat.codesearch.enabled": true,
+    "github.copilot.chat.agent.thinkingTool": true,
+    "github.copilot.chat.editor.temporalContext.enabled": true,
+    "github.copilot.chat.edits.temporalContext.enabled": true,
+    "github.copilot.chat.generateTests.codeLens": true,
+    "github.copilot.chat.languageContext.fix.typescript.enabled": true,
+    "github.copilot.chat.languageContext.inline.typescript.enabled": true,
+    "github.copilot.chat.languageContext.typescript.enabled": true,
 }

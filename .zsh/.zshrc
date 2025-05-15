@@ -1,3 +1,6 @@
+# Installed on: 2023-05-24
+# 2023-05-24 14:43:27.000000000 +0530
+# stat -c %w /
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -77,7 +80,7 @@ ZSH_THEME="steeef" # set by `omz`
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vscode dirhistory systemd autopep8 sudo rust zoxide web-search qrcode history emoji archlinux fzf genpass)
+plugins=(git vscode dirhistory systemd autopep8 sudo rust zoxide web-search qrcode history emoji archlinux fzf genpass pdm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -146,8 +149,10 @@ alias ytb="yt-dlp -S +hdr -f 'bestaudio+bestvideo'"
 alias ytbx264="yt-dlp -S +hdr -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'"
 alias ytp="yt-dlp -S +hdr -f 'bestvideo[height<=1080]+bestaudio'"
 alias ytpx264="yt-dlp -S +hdr -f 'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]'"
-alias sudoreset="faillock --user $USER --reset"
+alias ytm="yt-dlp -f 'bestaudio'"
+alias ytf="yt-dlp --list-formats"
 alias yt-dlp-update="DISPLAY= pip install git+https://github.com/yt-dlp/yt-dlp/@master --break-system-packages"
+alias sudoreset="faillock --user $USER --reset"
 alias vi="nvim"
 alias vim="nvim"
 alias display_normal="xrandr --output HDMI-1 --brightness 1.0"
@@ -220,4 +225,19 @@ alias yay="PKGEXT=.pkg.tar paru"
 # Unbind Alt-U, Alt-I, which is used by vim 
 bindkey -r "^[i"
 bindkey -r "^[u"
+alias f='xdg-open "$(fzf)"'
+export VISUAL=nvim
+alias dcu='docker compose up'
+alias cpypass='~/random_passphrase_generator.py 5 | xcp'
+alias fontsearch='fc-list : family | sort | uniq | grep -i'
+alias gdb='gdb -q'
+alias wprop='qdbus org.kde.KWin /KWin queryWindowInfo'
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
