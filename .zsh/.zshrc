@@ -80,7 +80,7 @@ ZSH_THEME="steeef" # set by `omz`
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vscode dirhistory systemd autopep8 sudo rust zoxide web-search qrcode history emoji archlinux fzf genpass pdm)
+plugins=(git vscode dirhistory systemd autopep8 sudo rust zoxide web-search qrcode history emoji archlinux fzf genpass pdm golang python pyenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -165,7 +165,7 @@ alias sshk="kitty +kitten ssh"
 alias vnetstart="sudo virsh net-start default"
 alias ws="darkhttpd . --port 8080 --addr 0.0.0.0"
 alias threadcount="ps -o nlwp"
-alias mirror="wget -e robots=off --mirror --convert-links --adjust-extension --page-requisites --no-parent" # Some more options : --random-wait / --wait=1h
+alias mirror="wget -e robots=off --mirror --convert-links --adjust-extension --page-requisites --no-parent --wait=3 --random-wait" # Some more options : --random-wait / --wait=1h
 # Make a local pacman cache for VMs, machines on local network
 # Run this first ln -s /var/lib/pacman/sync/*.db /var/cache/pacman/pkg/
 # https://wiki.archlinux.org/title/pacman/Tips_and_tricks#Custom_local_repository
@@ -241,3 +241,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+alias neofetch='fastfetch'

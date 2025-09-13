@@ -126,7 +126,6 @@
     "editor.padding.top": 14,
     "editor.scrollbar.horizontal": "hidden",
     "editor.codeLens": false,
-    "editor.glyphMargin": false,
     "editor.foldingHighlight": false,
     "editor.renderLineHighlight": "gutter",
     "editor.guides.indentation": true,
@@ -201,4 +200,23 @@
     "github.copilot.chat.languageContext.fix.typescript.enabled": true,
     "github.copilot.chat.languageContext.inline.typescript.enabled": true,
     "github.copilot.chat.languageContext.typescript.enabled": true,
+    // To show debug breakpoints
+    "editor.glyphMargin": true,
+    "debug.openDebug": "openOnSessionStart",
+    "chat.instructionsFilesLocations": {
+        ".github/instructions": true,
+        "/tmp/postman-http-request-post-response.instructions.md": true,
+        "/tmp/postman-http-request-pre-request.instructions.md": true,
+        "/tmp/postman-collections-post-response.instructions.md": true,
+        "/tmp/postman-collections-pre-request.instructions.md": true,
+        "/tmp/postman-folder-post-response.instructions.md": true,
+        "/tmp/postman-folder-pre-request.instructions.md": true
+    },
+    "docker.extension.enableComposeLanguageServer": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "python.analysis.typeCheckingMode": "standard",
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "notebook.output.textLineLimit": 80
 }
