@@ -176,7 +176,7 @@
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.showTabs": "single",
     "workbench.list.horizontalScrolling": true,
-    "workbench.preferredDarkColorTheme": "Gruvbox Material Dark",
+    "workbench.preferredDarkColorTheme": "Everforest Dark",
     "workbench.preferredLightColorTheme": "Gruvbox Material Light",
     "workbench.startupEditor": "none",
     "workbench.statusBar.visible": false,
@@ -186,7 +186,6 @@
     "editor.scrollbar.vertical": "hidden",
     "color-highlight.markRuler": false,
     "editor.stickyScroll.enabled": false,
-    "breadcrumbs.enabled": false,
     "github.copilot.editor.enableAutoCompletions": true,
     "leetcode.defaultLanguage": "cpp",
     "leetcode.allowReportData": false,
@@ -218,5 +217,13 @@
     "files.exclude": {
         "**/__pycache__": true
     },
-    "notebook.output.textLineLimit": 80
+    "notebook.output.textLineLimit": 80,
+    "everforest.darkContrast": "hard",
+    "pgsql.serverGroups": [
+        {
+            "name": "Servers",
+            "id": "A4EEB8A2-BC46-4EEA-AC99-766A4A8885D1",
+            "isDefault": true
+        }
+    ]
 }

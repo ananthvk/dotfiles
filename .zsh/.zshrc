@@ -242,3 +242,20 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias neofetch='fastfetch'
+alias cleanpdf='function _cleanpdf(){ \
+    # Step 1: Make a copy of the input file in the current directory
+    cp "$1" "$(basename "$1" .pdf).copy.pdf" && \
+    # Step 2: Remove metadata using ExifTool
+    exiftool -all= -overwrite_original "$(basename "$1" .pdf).copy.pdf" && \
+    # Step 3: Run Ghostscript to process and optimize the PDF
+    gs -o "$(basename "$1" .pdf).cleaned.pdf" -sDEVICE=pdfwrite -dPDFSETTINGS=/default "$(basename "$1" .pdf).copy.pdf" && \
+    # Step 4: Run ExifTool again to remove metadata from the Ghostscript output
+    exiftool -all= -overwrite_original "$(basename "$1" .pdf).cleaned.pdf" && \
+    # Step 5: Remove the temporary copy file
+    rm "$(basename "$1" .pdf).copy.pdf"; \
+}; _cleanpdf'
+alias _cleandocker='docker stop $(docker ps -qa); docker rm $(docker ps -qa); docker rmi -f $(docker images -qa); docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q)'
+# Lists only files, sorted by size 
+alias lsf='ls -flas size'
+# Lists only directories, sorted by size
+alias lsd='ls -la -D --total-size -s size'
